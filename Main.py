@@ -1,7 +1,6 @@
 import _VoiceRec
 
 
-
 while True:
     Audio = _VoiceRec.Listen()
     Recognized = _VoiceRec.Recognize(Audio)
