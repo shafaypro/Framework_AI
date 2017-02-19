@@ -1,5 +1,8 @@
 import speech_recognition as sr
 import stopit #timeout module
+from gtts import gTTS
+import pygame
+from time import sleep as wait
 
 r = sr.Recognizer()
 m = sr.Microphone()
@@ -27,3 +30,13 @@ def Recognize(Audio): #Sends mp3 to google to be translated
     else:
         print('[Info]: Timeout detected. Restarting...') #Same here as except
         pass
+
+def Speak(Text):
+    tts = gTTS(text=Text, lang='en')
+    tts.save("Voice.mp3")
+    pygame.mixer.init()
+    pygame.mixer.music.load("Voice.mp3")
+    pygame.mixer.music.play()
+    while pygame.mixer.music.get_busy() == True:
+        continue
+    wait(0.1)
