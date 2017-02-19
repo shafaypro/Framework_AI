@@ -33,9 +33,9 @@ def Recognize(Audio): #Sends mp3 to google to be translated
 
 def Speak(Text):
     tts = gTTS(text=Text, lang='en')
-    tts.save("Voice.mp3")
+    tts.save("/Sounds/Voice.mp3")
     pygame.mixer.init()
-    pygame.mixer.music.load("Voice.mp3")
+    pygame.mixer.music.load("/Sounds/Voice.mp3")
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy() == True:
         continue
