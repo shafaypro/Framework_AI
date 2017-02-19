@@ -1,4 +1,11 @@
 import _VoiceRec
+import _Youtube
+
+
+#Assign:
+YoutubeSearch = _Youtube.YoutubeSearch
+
+
 
 
 while True:
