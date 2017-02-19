@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import urllib.request
 import webbrowser
+import pafy
+import datetime
 href = []
 
 def YoutubeSearch(Query):
@@ -14,3 +16,8 @@ def YoutubeSearch(Query):
     video = (('http://www.youtube.com_HREF_')
              .replace('_HREF_', href[0]))
     webbrowser.open(video)
+    Details = pafy.new(video)
+    vidTitle = Details.title
+    with open('Data/Searched_Songs.txt', 'a') as SongList:
+        SongList.write(vidTitle + '\n')
+YoutubeSearch('Brachistochrome')
